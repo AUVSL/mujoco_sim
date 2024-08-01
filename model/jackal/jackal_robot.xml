@@ -9,9 +9,9 @@
     </asset>
 
 	<worldbody>
-		<body name="jackal" pos="0 0 0.06344">
-            <site name="jackal" pos="0 0 0"/>
-            <joint type="free" name="jackal" damping="0"/>
+		<body name="jackal" pos="0 0 0.1" quat="1 0 0 0">
+            <site name="jackal" pos="0 0 0" />
+            <freejoint name="jackal" />
 
             <geom pos="0 0 -0.0655" quat="0.5 0.5 0.5 0.5" type="mesh" contype="0" conaffinity="0" group="1" rgba="0.15 0.15 0.15 1" mesh="base"/>
             <geom pos="0 0 0" quat="0 0 0 1" type="mesh" contype="0" conaffinity="0" group="1" rgba="1.0 0.7 0 1" mesh="fender"/>
@@ -58,7 +58,12 @@
 
     <!--ACTUATORS-->
     <actuator>
-        <motor gear="0.3 0 0 0 0 0" joint="front_left_wheel" name="left"/>
-        <motor gear="0.3 0 0 0 0 0" joint="front_right_wheel" name="right"/>
+        <velocity joint="front_left_wheel" name="front_left_wheel" />
+        <velocity joint="front_right_wheel" name="front_right_wheel" />
+        <velocity joint="rear_right_wheel" name="rear_right_wheel" />
+        <velocity joint="rear_left_wheel" name="rear_left_wheel" />
+
+        <!-- <motor gear="0.3 0 0 0 0 0" joint="front_left_wheel" name="left"/>
+        <motor gear="0.3 0 0 0 0 0" joint="front_right_wheel" name="right"/> -->
     </actuator>
 </mujoco>
