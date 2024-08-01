@@ -21,24 +21,30 @@
             <geom pos="-0.131 0.187795 0.0345" quat="0.707107 0.707107 0 0" type="mesh" contype="0" conaffinity="0" group="1" rgba="0.15 0.15 0.15 1" mesh="wheel"/>
             <geom pos="-0.131 -0.187795 0.0345" quat="0.707107 0.707107 0 0" type="mesh" contype="0" conaffinity="0" group="1" rgba="0.15 0.15 0.15 1" mesh="wheel"/>
 
-            <geom name="jackal" size="0.21 0.155 0.092" pos="0 0 0.092" type="box" rgba="0.2 0.2 0.2 1" group="5"/>
-            
+            <body name="chassis">
+                <geom name="chassis" size="0.21 0.155 0.092" pos="0 0 0.092" type="box" rgba="0.2 0.2 0.2 1" group="5" /> 
+                <inertial pos="0.012 0.002 0.067" mass="16.523" fullinertia="0.3136 0.3922 0.4485 -0.0008 0.0164 -0.0009" />
+            </body>
             
             <body name="front_left_wheel" pos="0.131 0.187795 0.0345">
                 <joint type="hinge" name="front_left_wheel" axis="0 1 0"/>
                 <geom type="cylinder" name="front_left_wheel" size="0.098 0.02" quat="0.707107 0.707107 0 0" group="5" condim="4"/>
+                <inertial pos="0 0 0" mass="0.477" fullinertia="0.0013 0.0024 0.0013 0 0 0" />
             </body>
             <body name="front_right_wheel" pos="0.131 -0.187795 0.0345">
                 <joint type="hinge" name="front_right_wheel" axis="0 1 0"/>
                 <geom type="cylinder" name="front_right_wheel" size="0.098 0.02" quat="0.707107 0.707107 0 0" group="5" condim="4"/>
+                <inertial pos="0 0 0" mass="0.477" fullinertia="0.0013 0.0024 0.0013 0 0 0" />
             </body>
             <body name="rear_left_wheel" pos="-0.131 0.187795 0.0345">
                 <joint type="hinge" name="rear_left_wheel" axis="0 1 0"/>
                 <geom type="cylinder" name="rear_left_wheel" size="0.098 0.02" quat="0.707107 0.707107 0 0" group="5" condim="4"/>
+                <inertial pos="0 0 0" mass="0.477" fullinertia="0.0013 0.0024 0.0013 0 0 0" />
             </body>
             <body name="rear_right_wheel" pos="-0.131 -0.187795 0.0345">
                 <joint type="hinge" name="rear_right_wheel" axis="0 1 0"/>
                 <geom type="cylinder" name="rear_right_wheel" size="0.098 0.02" quat="0.707107 0.707107 0 0" group="5" condim="4"/>
+                <inertial pos="0 0 0" mass="0.477" fullinertia="0.0013 0.0024 0.0013 0 0 0" />
             </body>
 		</body>
 	</worldbody>
