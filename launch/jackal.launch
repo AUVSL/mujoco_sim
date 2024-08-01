@@ -1,0 +1,12 @@
+<launch>
+
+    <include file="$(find mujoco_sim)/launch/mujoco_sim.launch" >
+        <arg name="robot" value="$(find mujoco_sim)/model/jackal/jackal_robot.xml" />
+        <arg name="world" value="$(find mujoco_sim)/model/jackal/jackal_world.xml" />
+    </include>
+
+    <include file="$(find jackal_description)/launch/description.launch" />
+
+    <include file="$(find jackal_control)/launch/control.launch" />
+
+</launch>

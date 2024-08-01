@@ -12,7 +12,7 @@
 
 save_path: "model/save" # Path to save screenshot, which can be either a relative path to mujoco_sim or an absolute path
 
-disable_gravity: true # Disable gravity or not
+disable_gravity: false # Disable gravity or not
 
 add_odom_joints: false # true for mobile robots, false for fixed-based robots
 # add_odom_joints can be specified by different ways:
@@ -53,7 +53,7 @@ max_time_step: 0.005 # Maximal time step (bigger value <=> faster but more unsta
 
 # Only specify a custom controller type if not using 'position_controllers', 'velocity_controllers', or 'effort_controllers'
 # For example, a skid steer vehicle might use 'diff_drive_controller/DiffDriveController'.
-# custom_controller_type: "diff_drive_controller/DiffDriveController"
+custom_controller_type: "diff_drive_controller/DiffDriveController"
 
 pub_object_marker_array:
   free_bodies_only: True # Only publish the marker array of free objects
