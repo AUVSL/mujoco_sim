@@ -56,14 +56,28 @@
         <gyro site="jackal" name="gyro"/>
     </sensor>
 
+    <tendon>
+        <fixed name="left_differential">
+            <joint joint="front_left_wheel" coef="1" />
+            <joint joint="rear_left_wheel" coef="1" />
+        </fixed>
+
+        <fixed name="right_differential">
+            <joint joint="front_right_wheel" coef="1" />
+            <joint joint="front_left_wheel" coef="1" />
+        </fixed>
+    </tendon>
+
     <!--ACTUATORS-->
     <actuator>
-        <velocity joint="front_left_wheel" name="front_left_wheel" />
-        <velocity joint="front_right_wheel" name="front_right_wheel" />
-        <velocity joint="rear_right_wheel" name="rear_right_wheel" />
-        <velocity joint="rear_left_wheel" name="rear_left_wheel" />
+        <velocity joint="front_left_wheel" name="front_left_wheel" ctrlrange="-20 20" ctrllimited="true" />
+        <velocity joint="front_right_wheel" name="front_right_wheel" ctrlrange="-20 20" ctrllimited="true" />
+        <velocity joint="rear_right_wheel" name="rear_right_wheel" ctrlrange="-20 20" ctrllimited="true" />
+        <velocity joint="rear_left_wheel" name="rear_left_wheel" ctrlrange="-20 20" ctrllimited="true" />
 
-        <!-- <motor gear="0.3 0 0 0 0 0" joint="front_left_wheel" name="left"/>
-        <motor gear="0.3 0 0 0 0 0" joint="front_right_wheel" name="right"/> -->
+        <!--
+        <velocity joint="left_differential" ctrlrange="-20 20" ctrllimited="true" />
+        <velocity joint="right_differential" ctrlrange="-20 20" ctrllimited="true" />
+        -->
     </actuator>
 </mujoco>
