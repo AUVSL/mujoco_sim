@@ -76,15 +76,30 @@ void MjHWInterface::write()
     {
         if (MjSim::controlled_joints.find(joint_names[i]) != MjSim::controlled_joints.end())
         {
-            const int joint_id = mj_name2id(m, mjtObj::mjOBJ_JOINT, joint_names[i].c_str());
-            const int dof_id = m->jnt_dofadr[joint_id];
-            if (mju_abs(joint_velocities_command[i]) > mjMINVAL)
+            const int object_id = mj_name2id(m, MjSim::controlled_joints_are_actuators ? mjtObj::mjOBJ_ACTUATOR : mjtObj::mjOBJ_JOINT, joint_names[i].c_str());
+
+            if (!MjSim::controlled_joints_are_actuators)
             {
-                MjSim::dq[dof_id] = joint_velocities_command[i];
+                const int dof_id = m->jnt_dofadr[object_id];
+                if (mju_abs(joint_velocities_command[i]) > mjMINVAL)
+                {
+                    MjSim::dq[dof_id] = joint_velocities_command[i];
+                }
+                else
+                {
+                    MjSim::ddq[dof_id] = joint_efforts_command[i];
+                }
             }
             else
             {
-                MjSim::ddq[dof_id] = joint_efforts_command[i];
+                if (mju_abs(joint_velocities_command[i]) > mjMINVAL)
+                {
+                    MjSim::ctrl[object_id] = joint_velocities_command[i];
+                }
+                else
+                {
+                    MjSim::ctrl[object_id] = joint_efforts_command[i];
+                }
             }
         }
     }

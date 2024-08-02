@@ -85,6 +85,8 @@ public:
 
     static std::map<std::string, std::vector<std::string>> joint_names;
 
+    static bool controlled_joints_are_actuators;
+
     static std::set<std::string> controlled_joints;
 
     static std::map<std::string, mjtNum> odom_vels;
@@ -98,6 +100,8 @@ public:
     static mjtNum *dq;
 
     static mjtNum *tau;
+
+    static mjtNum *ctrl;
 
     static std::map<std::string, std::map<std::string, bool>> add_odom_joints;
 

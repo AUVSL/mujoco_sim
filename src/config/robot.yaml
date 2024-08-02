@@ -11,6 +11,8 @@
 #   joint1: 0
 #   joint2: 1
 
+controlled_joint_are_actuators: false  # Indicate whether the controlled resources are mujoco joints (false) or mujoco actuators (true)
+
 save_path: "model/save" # Path to save screenshot, which can be either a relative path to mujoco_sim or an absolute path
 
 disable_gravity: false # Disable gravity or not

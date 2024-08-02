@@ -304,6 +304,8 @@ void MjRos::set_params()
         }
     }
 
+    ros::param::get("~controlled_joint_are_actuators", MjSim::controlled_joints_are_actuators);
+
     bool add_odom_joints_bool;
     if (ros::param::get("~add_odom_joints", add_odom_joints_bool))
     {

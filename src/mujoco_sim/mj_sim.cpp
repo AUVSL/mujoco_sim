@@ -30,6 +30,8 @@ double MjSim::max_time_step;
 
 std::map<std::string, std::vector<std::string>> MjSim::joint_names;
 
+bool MjSim::controlled_joints_are_actuators = false;
+
 std::map<std::string, mjtNum> MjSim::odom_vels;
 
 std::set<std::string> MjSim::robot_link_names;
@@ -39,6 +41,8 @@ mjtNum *MjSim::dq = NULL;
 mjtNum *MjSim::ddq = NULL;
 
 mjtNum *MjSim::tau = NULL;
+
+mjtNum *MjSim::ctrl = NULL;
 
 mjtNum MjSim::sim_start;
 
@@ -568,6 +572,8 @@ static void init_malloc()
 	mju_zero(MjSim::ddq, m->nv);
 	MjSim::dq = (mjtNum *)mju_malloc(m->nv * sizeof(mjtNum *));
 	mju_zero(MjSim::dq, m->nv);
+	MjSim::ctrl = (mjtNum *)mju_malloc(m->nu * sizeof(mjtNum *));
+	mju_zero(MjSim::ctrl, m->nu);
 }
 
 static void modify_xml(const char *xml_path, const std::set<std::string> &remove_body_names = {""})
@@ -1072,8 +1078,17 @@ void MjSim::controller()
 		}
 	}
 
+	for (int act_id = 0; act_id < m->nu; act_id++)
+	{
+		if (mju_abs(ctrl[act_id]) > mjMINVAL)
+		{
+			d->ctrl[act_id] = ctrl[act_id];
+		}
+	}
+
 	mju_zero(ddq, m->nv);
 	mju_zero(dq, m->nv);
+	mju_zero(ctrl, m->nu);
 }
 
 void MjSim::set_odom_vels()
