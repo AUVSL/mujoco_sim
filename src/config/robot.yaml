@@ -92,4 +92,4 @@ spawn_and_destroy_objects_rate: 10.0 # The frequency to spawn and destroy the ob
 
 spawn_object_count_per_cycle: 20 # The maximal number of objects to spawn per cycle
 
-root_frame_id: map # The frame id of the world (normally 'map' for fixed-based robots and 'odom' for mobile robots)
+root_frame_id: odom # The frame id of the world (normally 'map' for fixed-based robots and 'odom' for mobile robots)
