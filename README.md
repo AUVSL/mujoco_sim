@@ -41,6 +41,12 @@ cd ~/mujoco_ws                              # go to the workspace directory
 catkin_make                                 # build packages (or catkin build)
 source ~/mujoco_ws/devel/setup.bash         # source new overlay
 ```
+5) Install [Clearpath Jackal Noetic](https://www.clearpathrobotics.com/assets/guides/noetic/jackal/simulation.html) packages:
+```
+sudo apt-get install ros-noetic-jackal-simulator ros-noetic-jackal-desktop ros-noetic-jackal-navigation
+```
+
+(It is NOT necessary to install MuJoCo separately as this installation comes prepackaged with a version)
 
 ## Troubleshooting
 1) `ERROR: gladLoadGL error`
@@ -49,6 +55,9 @@ source ~/mujoco_ws/devel/setup.bash         # source new overlay
 2) Model errors when using a custom controller
 - Specify the controller in `robot.yaml`
 - Load the URDF to the parameter server **after** spawning the mujoco_sim node
+
+3) `git@github.com: Permission denied (publickey). fatal: Could not read from remote repository. Please make sure you have the correct access rights and the repository exists.`
+- Ensure that you have an SSH key setup for your GitHub account by following the steps listed in the [GitHub wiki](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
 ## Software architecture
 ![Picture](docs/html/mj__main_8cpp__incl.png)
