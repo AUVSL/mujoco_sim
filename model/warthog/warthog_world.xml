@@ -1,0 +1,27 @@
+<mujoco>
+    <size njmax="3000" nconmax="1000" />
+
+    <option gravity="0 0 -9.8"/>
+	<option timestep="0.0002" cone="elliptic" integrator="implicitfast">  <!-- Lower timestep is important (thanks Marius). -->
+		<flag warmstart="enable"></flag>
+	</option>
+
+    <default>
+        <geom condim="6" density="5" rgba="0.7 0.7 0.7 1" size=".05" type="sphere" />
+        <joint damping="0.001" />
+    </default>
+
+    <asset>
+        <texture name="floor_tex"   type="2d" builtin="checker" rgb1="0.7 0.7 0.7" rgb2="0.8 0.8 0.8" width="100" height="100" />
+        <material name="floor_mat" texture="floor_tex" shininess="0.0" texrepeat="100 100" specular="0.0" />
+    </asset>
+
+    <worldbody>
+		<light directional="true" ambient="0.2 0.2 0.2" diffuse="0.4 0.4 0.4" specular="0.1 0.1 0.1" castshadow="false" pos="0 0 4" dir="0 0 -1" name="light0" />
+
+        <!-- Floor Property -->
+        <geom name='floor' material="floor_mat" pos='0 0 0' size='100.0 100.0 0.1'  type='plane' condim="6" priority="100" friction="0.5 0.005 0.0001" />
+        <camera mode="fixed" name="frontview" pos="3.0 0 1.85" quat="0.56 0.43 0.43 0.56"/>
+    </worldbody>
+
+</mujoco>

@@ -13,7 +13,11 @@
     <joint damping="0.001" />
   </default>
 
-  <option timestep="0.002" gravity="0 0 -9.81" cone="elliptic">
+  <!--
+    Elliptic cone is the more accurate friction model, which is important for skid-steer.
+    Integrator "implicit" or "implicitfast" is recommended when using velocity servos.
+  -->
+  <option timestep="0.002" gravity="0 0 -9.81" cone="elliptic" integrator="implicitfast">
       <flag warmstart="enable"></flag>
   </option>
 
