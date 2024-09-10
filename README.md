@@ -35,6 +35,8 @@ wstool update -t ~/mujoco_ws/src            # pull the repositories
 ```
 rosdep install --ignore-src --from-paths ~/mujoco_ws/src/mujoco_sim/ ~/mujoco_ws/src/mujoco_msgs/ ~/mujoco_ws/src/mujoco_world/  # install dependencies available through apt
 ```
+Run `sudo apt-get install libglfw3 libglfw3-dev`. Install the warthog packages `git clone https://github.com/warthog-cpr/warthog`.
+
 4) Build packages
 ```
 cd ~/mujoco_ws                              # go to the workspace directory
