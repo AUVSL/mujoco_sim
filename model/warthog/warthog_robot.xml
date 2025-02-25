@@ -97,10 +97,10 @@
 
     <!--ACTUATORS-->
     <actuator>
-        <velocity joint="front_left_wheel_joint" name="front_left_wheel_joint" ctrlrange="-16 16" ctrllimited="true" />
-        <velocity joint="front_right_wheel_joint" name="front_right_wheel_joint" ctrlrange="-16 16" ctrllimited="true" />
-        <velocity joint="rear_right_wheel_joint" name="rear_right_wheel_joint" ctrlrange="-16 16" ctrllimited="true" />
-        <velocity joint="rear_left_wheel_joint" name="rear_left_wheel_joint" ctrlrange="-16 16" ctrllimited="true" />
+        <velocity joint="front_left_wheel_joint" name="front_left_wheel_joint" ctrlrange="-16 16" ctrllimited="true" kv="50" gear="10 0 0 0 0 0" />
+        <velocity joint="front_right_wheel_joint" name="front_right_wheel_joint" ctrlrange="-16 16" ctrllimited="true" kv="50" gear="10 0 0 0 0 0" />
+        <velocity joint="rear_right_wheel_joint" name="rear_right_wheel_joint" ctrlrange="-16 16" ctrllimited="true" kv="50" gear="10 0 0 0 0 0" />
+        <velocity joint="rear_left_wheel_joint" name="rear_left_wheel_joint" ctrlrange="-16 16" ctrllimited="true" kv="50" gear="10 0 0 0 0 0" />
         
         <!-- <velocity name="left" tendon="left_differential" gear="1 0 0 0 0 0" ctrlrange="-1000 1000" ctrllimited="true" />
         <velocity name="right" tendon="right_differential" gear="1 0 0 0 0 0" ctrlrange="-1000 1000" ctrllimited="true" /> -->
